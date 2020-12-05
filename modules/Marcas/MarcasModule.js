@@ -5,7 +5,5 @@ const MarcaSchema = mongoose.Schema({
         type: String,
         required: true
     }
-    
 })
-const Marcas = mongoose.model('Marcas',MarcaSchema)
-module.exports = Marcas;
+module.exports = mongoose.model('Marcas',MarcaSchema)

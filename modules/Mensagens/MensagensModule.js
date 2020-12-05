@@ -6,9 +6,8 @@ const MensagemSchema = mongoose.Schema({
     email:{ type: String, required: true },
     telefone:Number,
     celular:Number,
-    Mensagem:{ type: String, required: true },
+    mensagem:{ type: String, required: true },
     data:{ type: Date, default: Date.now }
 
 })
-const Mensagens = mongoose.model('Mensagens',MensagemSchema)
-module.exports = Mensagens;
+module.exports = mongoose.model('Mensagens',MensagemSchema)

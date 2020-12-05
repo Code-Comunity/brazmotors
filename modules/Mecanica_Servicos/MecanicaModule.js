@@ -19,5 +19,4 @@ const MecanicaSchema = mongoose.Schema({
     }
 
 })
-const Mecanica = mongoose.model('Mecanica_Serviços',MecanicaSchema)
-module.exports = Mecanica;
+module.exports = mongoose.model('Mecanica_Serviços',MecanicaSchema)

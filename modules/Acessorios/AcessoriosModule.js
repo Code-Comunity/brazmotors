@@ -19,5 +19,4 @@ const AcessoriosSchema = mongoose.Schema({
     }
 
 })
-const Acessorios = mongoose.model('Acessorios',AcessoriosSchema)
-module.exports = Acessorios;
+module.exports =  mongoose.model('Acessorios',AcessoriosSchema)

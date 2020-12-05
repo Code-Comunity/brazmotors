@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 const {adminBroOptions,router} = require('./admin');
+const routers = require('./routes')
 const express = require("express");
-const server = express();
+const app = express();
 
-server.use(adminBroOptions.options.rootPath, router);
+app.use(adminBroOptions.options.rootPath, router);
+app.use(routers)
+
 
 const run = async () => {
   await mongoose.connect('mongodb://localhost/adminbroapp', {
@@ -11,7 +14,7 @@ const run = async () => {
     useUnifiedTopology: true,
 });
 
-  await server.listen(5500, () => console.log("Server started"));
+  await app.listen(5500, () => console.log("Server started"));
 };
 
 run();
