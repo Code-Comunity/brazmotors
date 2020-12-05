@@ -4,7 +4,7 @@
   "description": "https://adminbro.com",
   "main": "admin.js",
   "scripts": {
-    "start": "node admin.js"
+    "start": "nodemon servidor.js"
   },
   "keywords": [],
   "author": "Mayk Brito",
