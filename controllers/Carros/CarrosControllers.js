@@ -1,17 +1,21 @@
 const Carros = require('../../models/Carros/CarrosModule')
+const Marcas = require('../../models/Marcas/MarcasModule')
+const CarrosViews = require('../../views/Carros/CarrosViews')
 module.exports = {
 
     async FindAll(Request,Response){
        const carros = await Carros.find({}).limit(10)
     return Response.json(carros)    
     },
-    async Find_Ano(Request,Response){
+    async FindById(Request,Response){
 
+        const Carro = await Carros.find({_id: Request.params.id}).limit(10)
+        const marcas = await Marcas.findById(Carro[0].marca)
+    
+        return Response.json(CarrosViews.Render(Carro))       
     },
     async Find_Cor(Request,Response){
-
     },
     async Find_Marca(Request,Response){
-
     }
 }

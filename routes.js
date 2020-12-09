@@ -7,11 +7,18 @@ const {Router} = require('express')
 const routers = Router()
 
 
+
 // Rotas
     routers.get('/acessorios',Acessorios.FindAll)
+
     routers.get('/carros',Carros.FindAll)
+    routers.get('/carros/:id',Carros.FindById)
+
     routers.get('/marcas',Marcas.FindAll)
-    routers.get('/mencanica-serviços',Mecanica.FindAll)
+    routers.get('/marcas/modelos/:id',Marcas.FindById)
+    
+    routers.get('/mencanica/serviços',Mecanica.FindAll)
+    
     routers.post('mensagem',Mensagens.Create)
 //
 

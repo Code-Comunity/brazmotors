@@ -12,7 +12,18 @@ AdminBro.registerAdapter(AdminBroMongoose);
 
 
 const adminBroOptions = new AdminBro({
-  resources: [Carros,Marcas,Acessorios,Mecanica,Mensagens],
+  resources: [
+    {resource: Mensagens, options: {
+    properties: {
+      data: {
+        isVisible: { edit: false , list: true , show: true , filter: false}
+      },
+      mensagem:{
+        type: 'richtext'
+      }
+    }
+  }   
+  },Marcas,Acessorios,Mecanica,Carros],
   rootPath: "/admin"
 });
 
