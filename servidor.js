@@ -8,7 +8,7 @@ app.use(adminBroOptions.options.rootPath, router);
 app.use(routers);
 
 const run = async () => {
-  await mongoose.connect('mongodb://localhost/adminbroapp', {
+  await mongoose.connect('mongodb+srv://ptkm1:87127186ab@cluster0.jkope.mongodb.net/marcas?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
