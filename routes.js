@@ -17,7 +17,7 @@ const routers = Router()
     routers.get('/marcas',Marcas.FindAll)
     routers.get('/marcas/modelos/:id',Marcas.FindById)
     
-    routers.get('/mencanica/serviços',Mecanica.FindAll)
+    routers.get('/mecanica/serviços',Mecanica.FindAll)
     
     routers.post('mensagem',Mensagens.Create)
 //
