@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const {adminBroOptions,router} = require('./admin');
+const {adminBroOptions,router} = require('./controllers/AdminPro/AdminControllers');
 const routers = require('./routes')
 const express = require("express");
 const app = express();

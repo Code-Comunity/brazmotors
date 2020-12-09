@@ -1,11 +1,11 @@
 const AdminBro = require("admin-bro");
 const AdminBroExpress = require("@admin-bro/express");
 const AdminBroMongoose = require("@admin-bro/mongoose");
-const Acessorios = require('./modules/Acessorios/AcessoriosModule')
-const Carros = require('./modules/Carros/CarrosModule')
-const Marcas = require('./modules/Marcas/MarcasModule')
-const Mecanica = require('./modules/Mecanica_Servicos/MecanicaModule')
-const Mensagens = require('./modules/Mensagens/MensagensModule')
+const Acessorios = require('../../models/Acessorios/AcessoriosModule')
+const Carros = require('../../models/Carros/CarrosModule')
+const Marcas = require('../../models/Marcas/MarcasModule')
+const Mecanica = require('../../models/Mecanica_Servicos/MecanicaModule')
+const Mensagens = require('../../models/Mensagens/MensagensModule')
 
 
 AdminBro.registerAdapter(AdminBroMongoose);

@@ -1,4 +1,4 @@
-const Carros = require('../../modules/Carros/CarrosModule')
+const Carros = require('../../models/Carros/CarrosModule')
 module.exports = {
 
     async FindAll(Request,Response){

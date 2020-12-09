@@ -1,4 +1,4 @@
-const Mensagem = require('../../modules/Mensagens/MensagensModule')
+const Mensagem = require('../../models/Mensagens/MensagensModule')
 module.exports = {
     async Create(Request,Response) {
         

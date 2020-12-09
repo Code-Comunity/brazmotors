@@ -1,4 +1,4 @@
-const Acessorios = require('../../modules/Acessorios/AcessoriosModule')
+const Acessorios = require('../../models/Acessorios/AcessoriosModule')
 module.exports = {
     async FindAll(Request,Response){
        const acessorios = await Acessorios.find({}).limit(10)
