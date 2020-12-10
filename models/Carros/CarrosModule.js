@@ -10,7 +10,7 @@ const CarroSchema = mongoose.Schema({
         required: true
     },
     ano:{
-        type: Number,
+        type: String,
         required: true
     },
     preco:{
