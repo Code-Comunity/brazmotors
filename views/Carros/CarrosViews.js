@@ -1,5 +1,4 @@
-const Carros = require('../../models/Carros/CarrosModule')
-const Marcas = require('../../models/Marcas/MarcasModule')
+
 
 module.exports = {
     Render(dados){
@@ -8,7 +7,10 @@ module.exports = {
                 id: carros._id,
                 nome: carros.nome,
                 modelo: carros.modelo,
-                marca: carros.marca
+                marca: carros.marca,
+                imagem: carros.imagem,
+                preco: carros.preco,
+                descricao: carros.descricao
             })
         })
     },

@@ -10,7 +10,7 @@ module.exports = {
     async FindById(Request,Response){
 
         const Carro = await Carros.find({_id: Request.params.id}).limit(10)
-        const marcas = await Marcas.findById(Carro[0].marca)
+        
     
         return Response.json(CarrosViews.Render(Carro))       
     },
