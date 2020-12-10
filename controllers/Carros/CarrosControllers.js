@@ -8,11 +8,8 @@ module.exports = {
     return Response.json(carros)    
     },
     async FindById(Request,Response){
-
         const Carro = await Carros.find({_id: Request.params.id}).limit(10)
-        
-    
-        return Response.json(CarrosViews.Render(Carro))       
+    return  Response.json(await CarrosViews.Render(Carro))       
     },
     async Find_Cor(Request,Response){
     },
