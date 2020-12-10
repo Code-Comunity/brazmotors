@@ -7,7 +7,6 @@ const {Router} = require('express')
 const routers = Router()
 
 
-
 // Rotas
     routers.get('/acessorios',Acessorios.FindAll)
 

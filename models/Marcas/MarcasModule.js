@@ -4,6 +4,10 @@ const MarcaSchema = mongoose.Schema({
     nome:{
         type: String,
         required: true
+    },
+    imagem:{
+        type: String,
+        required: true
     }
 })
 module.exports = mongoose.model('Marcas',MarcaSchema)
