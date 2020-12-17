@@ -7,6 +7,7 @@ const MensagemSchema = mongoose.Schema({
     telefone:Number,
     celular:Number,
     mensagem:{ type: String, required: true },
+    servico:{ type: Number, required: true },
     data:{ type: Date, default: Date.now }
 
 })
