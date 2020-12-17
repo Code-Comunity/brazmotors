@@ -4,8 +4,9 @@ const AdminBroMongoose = require("@admin-bro/mongoose");
 const Acessorios = require('../../models/Acessorios/AcessoriosModule')
 const Carros = require('../../models/Carros/CarrosModule')
 const Marcas = require('../../models/Marcas/MarcasModule')
-const Mecanica = require('../../models/Mecanica_Servicos/MecanicaModule')
-const Mensagens = require('../../models/Mensagens/MensagensModule')
+const Mensagens = require('../../models/Mensagens/MensagensModule');
+const MecanicaEspecializada = require("../../models/Mecanica_Especializada/MecanicaEspecializadaModele");
+const MecanicaPreventiva = require("../../models/Mecanica_Preventiva/MecanicaPreventivaModule");
 
 
 AdminBro.registerAdapter(AdminBroMongoose);
@@ -23,7 +24,7 @@ const adminBroOptions = new AdminBro({
       }
     }
   }   
-  },Marcas,Acessorios,Mecanica,Carros],
+  },Marcas,Acessorios,MecanicaEspecializada,MecanicaPreventiva,Carros],
   rootPath: "/admin"
 });
 
