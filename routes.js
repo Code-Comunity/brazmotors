@@ -1,7 +1,8 @@
 const Acessorios = require('./controllers/Acessorios/AcessoriosControllers')
 const Carros = require('./controllers/Carros/CarrosControllers')
 const Marcas = require('./controllers/Marcas/MarcasControllers')
-const Mecanica = require('./controllers/Mecanica_Serviços/MecanicaControllers')
+const MecanicaPreventiva = require('./controllers/Mecanica_Preventiva/MecanicaPreventivaController')
+const MecanicaEspecializada = require('./controllers/Mecanica_Especializada/MecanicaEspecializadaController')
 const Mensagens = require('./controllers/Mensagens/MensagensControllers') 
 const {Router} = require('express')
 const routers = Router()
@@ -16,8 +17,9 @@ const routers = Router()
     routers.get('/marcas',Marcas.FindAll)
     routers.get('/marcas/modelos/:id',Marcas.FindById)
     
-    routers.get('/mecanica/servicos',Mecanica.FindAll)
-    
+    routers.get('/mecanica-preventiva',MecanicaPreventiva.FindAll)
+    routers.get('/mecanica-especializada',MecanicaEspecializada.FindAll)
+
     routers.post('mensagem',Mensagens.Create)
 //
 
