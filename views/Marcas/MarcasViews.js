@@ -3,7 +3,8 @@ module.exports = {
         return(dados.map(marcas=>{
                 return({
                     id:marcas._id,
-                    marca: marcas.nome
+                    marca: marcas.nome,
+                    img: marcas.imagem
                 })
             })
         )
