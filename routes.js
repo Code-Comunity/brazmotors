@@ -18,9 +18,14 @@ const routers = Router()
     routers.get('/marcas/modelos/:id',Marcas.FindById)
     
     routers.get('/mecanica-preventiva',MecanicaPreventiva.FindAll)
-    routers.get('/mecanica-especializada',MecanicaEspecializada.FindAll)
+    routers.get('/mecanica-preventiva/:id',MecanicaPreventiva.FindById)
 
-    routers.post('mensagem',Mensagens.Create)
+    routers.get('/mecanica-especializada',MecanicaEspecializada.FindAll)
+    routers.get('/mecanica-especializada/:id',MecanicaEspecializada.FindById)
+
+
+    
+    routers.post('/mensagem',Mensagens.Create)
 //
 
 
