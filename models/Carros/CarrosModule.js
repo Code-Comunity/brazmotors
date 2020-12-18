@@ -17,6 +17,10 @@ const CarroSchema = mongoose.Schema({
         type: Number,
         required: true
     },
+    categoria:{
+        type: Array,
+        default: [1,2,3]
+    },
     cor:{
         type: String,
         required: true

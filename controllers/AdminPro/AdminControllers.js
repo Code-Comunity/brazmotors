@@ -7,7 +7,7 @@ const Marcas = require('../../models/Marcas/MarcasModule')
 const Mensagens = require('../../models/Mensagens/MensagensModule');
 const MecanicaEspecializada = require("../../models/Mecanica_Especializada/MecanicaEspecializadaModel");
 const MecanicaPreventiva = require("../../models/Mecanica_Preventiva/MecanicaPreventivaModel");
-
+const EsteticaAutomotiva = require("../../models/Estetica_Automotiva/EsteticaAutomotivaModel")
 
 AdminBro.registerAdapter(AdminBroMongoose);
 
@@ -24,7 +24,7 @@ const adminBroOptions = new AdminBro({
       }
     }
   }   
-  },Marcas,Acessorios,MecanicaEspecializada,MecanicaPreventiva,Carros],
+  },Marcas,Acessorios,EsteticaAutomotiva,MecanicaEspecializada,MecanicaPreventiva,Carros],
   rootPath: "/admin"
 });
 
