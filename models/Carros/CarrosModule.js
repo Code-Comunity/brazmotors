@@ -18,8 +18,8 @@ const CarroSchema = mongoose.Schema({
         required: true
     },
     categoria:{
-        type: Array,
-        default: [1,2,3]
+        type: String,
+        enum: ['Novo','Seminovo','Usado']
     },
     cor:{
         type: String,
