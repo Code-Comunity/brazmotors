@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
 const CarroSchema = mongoose.Schema({
+    
     nome:{
         type: String,
         required: true
@@ -17,12 +18,31 @@ const CarroSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    categoria:{
+    combustao:{
+        type: String,
+        required: true,       
+    },
+    versao:{
+        type: String,
+    },
+    KM_rodados:{
+        type: Number,
+        required: true,
+    },
+    cambio:{
+        type: String,
+        required: true,
+    },
+    classificacao:{
         type: String,
         enum: ['Novo','Seminovo','Usado']
     },
     cor:{
         type: String,
+        required: true
+    },
+    portas:{
+        type: Number,
         required: true
     },
     modelo:{
