@@ -1,5 +1,5 @@
-const Carros = require('../../models/Carros/CarrosModule')
-const Marcas = require('../../models/Marcas/MarcasModule')
+const Carros = require('../../models/Carros/CarrosModel')
+const Marcas = require('../../models/Marcas/MarcasModel')
 const CarrosViews = require('../../views/Carros/CarrosViews')
 module.exports = {
 

@@ -1,4 +1,4 @@
-const Acessorios = require('../../models/Acessorios/AcessoriosModule')
+const Acessorios = require('../../models/Acessorios/AcessoriosModel')
 module.exports = {
 
     async FindAll(Request,Response){

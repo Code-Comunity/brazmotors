@@ -1,5 +1,5 @@
-const Marcas = require('../../models/Marcas/MarcasModule')
-const Carros = require('../../models/Carros/CarrosModule')
+const Marcas = require('../../models/Marcas/MarcasModel')
+const Carros = require('../../models/Carros/CarrosModel')
 const MarcasViews = require('../../views/Marcas/MarcasViews')
 const MarcasModelosViews = require('../../views/Marcas/MarcasModelosViews')
 

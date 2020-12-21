@@ -11,17 +11,21 @@ const MensagemSchema = mongoose.Schema({
         required: true 
     },
 
-    telefone:Number,
+    telefone: Number,
 
-    celular:Number,
+    celular: Number,
 
     mensagem:{ 
         type: String, 
         required: true 
     },
-    servico:{ 
-        type: Number, 
-        required: true 
+    assunto:{ 
+        type: String,
+        required: true
+    },
+    categoria:{
+        type: String,
+        required: true
     },
     data:{ 
         type: Date,

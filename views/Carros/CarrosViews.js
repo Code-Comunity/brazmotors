@@ -1,4 +1,4 @@
-const Marcas = require('../../models/Marcas/MarcasModule')
+const Marcas = require('../../models/Marcas/MarcasModel')
 
 module.exports = {
     async Render(dados){

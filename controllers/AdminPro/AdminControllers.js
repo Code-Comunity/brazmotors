@@ -1,10 +1,10 @@
 const AdminBro = require("admin-bro");
 const AdminBroExpress = require("@admin-bro/express");
 const AdminBroMongoose = require("@admin-bro/mongoose");
-const Acessorios = require('../../models/Acessorios/AcessoriosModule')
-const Carros = require('../../models/Carros/CarrosModule')
-const Marcas = require('../../models/Marcas/MarcasModule')
-const Mensagens = require('../../models/Mensagens/MensagensModule');
+const Acessorios = require('../../models/Acessorios/AcessoriosModel')
+const Veículos = require('../../models/Carros/CarrosModel')
+const Marcas = require('../../models/Marcas/MarcasModel')
+const Mensagens = require('../../models/Mensagens/MensagensModel');
 const MecanicaEspecializada = require("../../models/Mecanica_Especializada/MecanicaEspecializadaModel");
 const MecanicaPreventiva = require("../../models/Mecanica_Preventiva/MecanicaPreventivaModel");
 const EsteticaAutomotiva = require("../../models/Estetica_Automotiva/EsteticaAutomotivaModel")
@@ -32,38 +32,37 @@ const adminBroOptions = new AdminBro({
         }           
     },
   {
-    resource: 
-    Administrador, 
-        options:{
-          properties:{
-              
-            encryptedPassword:{
-              isVisible: false,
-            },
+    resource: Administrador, 
+      options:{
+        properties:{
             
-            password:{
-              type: 'string',
-              isVisible:{
-                list: false, edit: true, filter: false, show: false,
-              },
+          encryptedPassword:{
+            isVisible: false,
+          },
+          
+          password:{
+            type: 'string',
+            isVisible:{
+              list: false, edit: true, filter: false, show: false,
             },
           },
-          actions:{
-            new:{
-              before: async(request)=>{
-                if(request.payload.password){
-                  console.log(request.payload.password);
-                  request.payload = {
-                    ...request.payload,
-                    encryptedPassword: await bcrypt.hash(request.payload.password,10),
-                    password: undefined,
-                  }
+        },
+        actions:{
+          new:{
+            before: async(request)=>{
+              if(request.payload.password){
+                request.payload = {
+                  ...request.payload,
+                  encryptedPassword: await bcrypt.hash(request.payload.password,10),
+                  password: undefined,
                 }
-                return request
-              },
-            }
+              }
+              return request
+            },
           }
-      }},Marcas,Acessorios,EsteticaAutomotiva,MecanicaEspecializada,MecanicaPreventiva,Carros],
+        }
+      }
+    },Marcas,Acessorios,EsteticaAutomotiva,MecanicaEspecializada,MecanicaPreventiva,Veículos],
   rootPath: "/admin"
 });
 
@@ -76,7 +75,7 @@ const router = AdminBroExpress.buildAuthenticatedRouter(adminBroOptions,{
       const batem = await bcrypt.compare(password, Admin.encryptedPassword)
 
       if(batem){
-        console.log(password, Admin);
+        
         return Admin
       }
     }

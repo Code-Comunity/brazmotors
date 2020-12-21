@@ -6,7 +6,7 @@ module.exports = {
     return Response.json(estetica)    
     },
     async FindById(Request,Response){
-            const estetica = await EsteticaAutomotiva.find({_id: Request.params.id}).limit(10)
+       const estetica = await EsteticaAutomotiva.find({_id: Request.params.id}).limit(10)
     return Response.json(estetica)    
     }
 }

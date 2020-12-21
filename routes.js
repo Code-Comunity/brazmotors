@@ -4,7 +4,13 @@ const Marcas = require('./controllers/Marcas/MarcasControllers')
 const MecanicaPreventiva = require('./controllers/Mecanica_Preventiva/MecanicaPreventivaController')
 const MecanicaEspecializada = require('./controllers/Mecanica_Especializada/MecanicaEspecializadaController')
 const EsteticaAutomotiva = require('./controllers/Estética_Automotiva/EsteticaAutomotivaController')
-const Mensagens = require('./controllers/Mensagens/MensagensControllers') 
+
+const AcessoriosAutomotivo_msg = require('./controllers/Mensagens/AcessoriosAutomotivosControllers') 
+const Carros_msg = require('./controllers/Mensagens/CarrosControllers') 
+const EsteticaAutomotiva_msg = require('./controllers/Mensagens/EsteticaAutomotivaControllers') 
+const MecanicaEspecializada_msg = require('./controllers/Mensagens/MecanicaEspecializadaControllers') 
+const MecanicaPreventiva_msg = require('./controllers/Mensagens/MecanicaPreventivaControllers') 
+
 const {Router} = require('express')
 const routers = Router()
 
@@ -28,13 +34,20 @@ const routers = Router()
         routers.get('/mecanica-especializada',MecanicaEspecializada.FindAll)
         routers.get('/mecanica-especializada/:id',MecanicaEspecializada.FindById)
         
-        routers.get('/estetica-automotiva',EsteticaAutomotiva.FindAll)
+        routers.post('/estetica-automotiva',EsteticaAutomotiva.FindAll)
         routers.get('/estetica-automotiva/:id',EsteticaAutomotiva.FindById)
     
     //
+    // Rotas das Mensagens
     
-    routers.post('/mensagem',Mensagens.Create)
-//
+        routers.post('/mensagem/MecanicaPreventiva',MecanicaPreventiva_msg.Create)
+        routers.post('/mensagem/MecanicaEspecializada',MecanicaEspecializada_msg.Create)
+        routers.post('/mensagem/EsteticaAutomotiva',EsteticaAutomotiva_msg.Create)
+        routers.post('/mensagem/Veiculo',Carros_msg.Create)
+        routers.post('/mensagem/AcessoriosAutomotivo',AcessoriosAutomotivo_msg.Create)
+
+
+    //
 
 
 module.exports = routers
