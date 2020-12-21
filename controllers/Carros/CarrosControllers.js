@@ -5,7 +5,7 @@ module.exports = {
 
     async FindAll(Request,Response){
        const carros = await Carros.find({}).limit(10)
-    return Response.json(carros)    
+    return Response.json(await CarrosViews.Render(carros))    
     },
     async FindById(Request,Response){
         const Carro = await Carros.find({_id: Request.params.id}).limit(10)
