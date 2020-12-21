@@ -2,8 +2,11 @@ const Marcas = require('../../models/Marcas/MarcasModel')
 
 module.exports = {
     async Render(dados){
-        const marca = await Marcas.findById(dados[0].marca)
-        return dados.map( carros=>{
+        
+        const resultados = dados.map(async carros=>{
+            
+            const marca = await Marcas.findById(carros.marca)
+      
             return ({
                 id: carros._id,
                 nome: carros.nome,
@@ -14,6 +17,7 @@ module.exports = {
                 descricao: carros.descricao
             })
         })
+        return await Promise.all(resultados)
     },
 
     RenderAll(){
