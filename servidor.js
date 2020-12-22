@@ -3,12 +3,11 @@ const {adminBroOptions,router} = require('./controllers/AdminPro/AdminController
 const routers = require('./routes');
 const express = require('express');
 const app = express();
-
+const cors = require('cors')
   
+  app.use(cors())
   app.use(adminBroOptions.options.rootPath, router);
-
   app.use(express.json())
-
   app.use(routers);
 
 
