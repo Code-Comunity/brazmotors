@@ -18,8 +18,5 @@ module.exports = {
             })
         })
         return await Promise.all(resultados)
-    },
-
-    RenderAll(){
     }
 }
