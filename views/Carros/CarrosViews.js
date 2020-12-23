@@ -11,6 +11,7 @@ module.exports = {
                 _id: carros._id,
                 nome: carros.nome,
                 modelo: carros.modelo,
+                cor: carros.cor,
                 marca: marca.nome,
                 imagem: carros.imagem,
                 preco: carros.preco,
