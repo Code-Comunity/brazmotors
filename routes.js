@@ -34,7 +34,7 @@ const routers = Router()
         routers.get('/mecanica-especializada',MecanicaEspecializada.FindAll)
         routers.get('/mecanica-especializada/:id',MecanicaEspecializada.FindById)
         
-        routers.post('/estetica-automotiva',EsteticaAutomotiva.FindAll)
+        routers.get('/estetica-automotiva',EsteticaAutomotiva.FindAll)
         routers.get('/estetica-automotiva/:id',EsteticaAutomotiva.FindById)
     
     //
