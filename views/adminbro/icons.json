@@ -1,0 +1,11 @@
+{
+    "createParent":{
+        "name": "Create",
+        "icon": "fa fa-coffee"
+       },
+       ​
+    "managerParent":{
+        "name": "Manage",
+        "icon": "fa fa-cog"
+    }
+}

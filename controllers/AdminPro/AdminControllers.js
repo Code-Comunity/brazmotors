@@ -1,7 +1,7 @@
 const AdminBro = require("admin-bro");
 const AdminBroExpress = require("@admin-bro/express");
 const AdminBroMongoose = require("@admin-bro/mongoose");
-const Acessorios = require('../../models/Acessorios/AcessoriosModel')
+const AcessoriosAutomotivos = require('../../models/Acessorios/AcessoriosModel')
 const Veículos = require('../../models/Carros/CarrosModel')
 const Marcas = require('../../models/Marcas/MarcasModel')
 const Mensagens = require('../../models/Mensagens/MensagensModel');
@@ -12,8 +12,26 @@ const Administrador = require("../../models/Administrador/AdministradorModel");
 const bcrypt = require("bcrypt")
 
 
-AdminBro.registerAdapter(AdminBroMongoose);
+AdminBro.registerAdapter(AdminBroMongoose)
 
+const sidebarGroups = {
+  user: {
+    name: 'Administradores',
+    icon: 'User',
+  },
+  company: {
+    name: 'Gestão de Serviços',
+    icon: 'Product'
+  },
+  email: {
+    name: 'Caixa de Email',
+    icon: 'Email'
+  },
+  carro: {
+    name: 'Concessionária ',
+    icon: 'Car'
+  }
+};
 
 const adminBroOptions = new AdminBro({
   resources: [
@@ -21,18 +39,24 @@ const adminBroOptions = new AdminBro({
       resource: Mensagens,
         options: {
           properties: {
-
             data: {
               isVisible: { edit: false , list: true , show: true , filter: false}
             },
             mensagem:{
-              type: 'richtext'
+              type: 'richtext',
+              
             },
+          } ,     
+          actions:{
+            show: false
           },
-        }           
-    },
+          parent: sidebarGroups.email
+        },
+       
+      },
   {
     resource: Administrador, 
+
       options:{
         properties:{
             
@@ -60,10 +84,27 @@ const adminBroOptions = new AdminBro({
               return request
             },
           }
-        }
+        },
+        parent: sidebarGroups.user
       }
-    },Marcas,Acessorios,EsteticaAutomotiva,MecanicaEspecializada,MecanicaPreventiva,Veículos],
-  rootPath: "/admin"
+    
+    },{resource:AcessoriosAutomotivos, options:{parent: sidebarGroups.company}},
+      {resource:EsteticaAutomotiva, options:{parent: sidebarGroups.company}},
+      {resource:MecanicaEspecializada, options:{parent: sidebarGroups.company}},
+      {resource:MecanicaPreventiva, options:{parent: sidebarGroups.company}},
+      {resource:Veículos, options:{parent: sidebarGroups.carro}},
+      {resource:Marcas, options:{parent: sidebarGroups.carro}}
+      
+      
+      ,],
+    
+    branding:{
+
+      companyName: 'BrazMotors',
+    },
+   
+    rootPath: "/admin",
+  
 });
 
 const router = AdminBroExpress.buildAuthenticatedRouter(adminBroOptions,{
