@@ -9,29 +9,11 @@ const MecanicaEspecializada = require("../../models/Mecanica_Especializada/Mecan
 const MecanicaPreventiva = require("../../models/Mecanica_Preventiva/MecanicaPreventivaModel");
 const EsteticaAutomotiva = require("../../models/Estetica_Automotiva/EsteticaAutomotivaModel")
 const Administrador = require("../../models/Administrador/AdministradorModel");
+const sidebarGroups = require('../../utils/sideBars')
 const bcrypt = require("bcrypt")
 
 
 AdminBro.registerAdapter(AdminBroMongoose)
-
-const sidebarGroups = {
-  user: {
-    name: 'Administradores',
-    icon: 'User',
-  },
-  company: {
-    name: 'Gestão de Serviços',
-    icon: 'Product'
-  },
-  email: {
-    name: 'Caixa de Email',
-    icon: 'Email'
-  },
-  carro: {
-    name: 'Concessionária ',
-    icon: 'Car'
-  }
-};
 
 const adminBroOptions = new AdminBro({
   resources: [
@@ -44,11 +26,11 @@ const adminBroOptions = new AdminBro({
             },
             mensagem:{
               type: 'richtext',
-              
             },
-          } ,     
+          },     
           actions:{
-            show: false
+            edit:{isVisible: false},
+            new:{isVisible: false} 
           },
           parent: sidebarGroups.email
         },
@@ -85,7 +67,12 @@ const adminBroOptions = new AdminBro({
             },
           }
         },
-        parent: sidebarGroups.user
+        parent: sidebarGroups.user,
+        translations: {
+          buttons: {
+            save: 'aaaaaaaaaaaa',
+          }
+        },
       }
     
     },{resource:AcessoriosAutomotivos, options:{parent: sidebarGroups.company}},
@@ -97,12 +84,35 @@ const adminBroOptions = new AdminBro({
       
       
       ,],
-    
+      
+      locale: {
+        translations: {
+          actions: {
+            new: 'Novo',
+            edit: 'Editar',
+            show: 'Detalhes',
+            delete: 'Deletar'
+          },
+        buttons:{
+          save:"Salvar",
+          filter: "Filtrar Dados",
+          confirmRemovalMany_1: "sdasdasdasdsada"
+        },
+        labels:{
+          comment: "Listar"
+        }
+      }
+      },
+      
     branding:{
 
       companyName: 'BrazMotors',
+      logo: '../../images/Union.png',
+      softwareBrothers: false
     },
-   
+    dashboard: {
+      component: AdminBro.bundle('../../utils/components/home')
+   },
     rootPath: "/admin",
   
 });
