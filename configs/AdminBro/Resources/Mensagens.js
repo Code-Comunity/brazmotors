@@ -1,7 +1,7 @@
+const sidebarGroups = require('../../../utils/sideBars')
+
 module.exports = {
-    resource: {
-    resource: Mensagens,
-      options: {
+    options: {
         properties: {
           data: {
             isVisible: { edit: false , list: true , show: true , filter: false}
@@ -17,4 +17,4 @@ module.exports = {
         parent: sidebarGroups.email
       },
      
-    }}
+}
