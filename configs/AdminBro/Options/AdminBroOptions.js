@@ -34,7 +34,7 @@ module.exports = {
         handler: async () => {
             return { some: 'output' }
           },
-    component: AdminBro.bundle('../../../utils/components/dash')
+    component: AdminBro.bundle('../../../utils/components/home')
     
     },
     rootPath: "/admin",
