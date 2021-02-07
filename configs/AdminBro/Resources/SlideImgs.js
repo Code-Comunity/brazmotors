@@ -16,19 +16,12 @@ const uploadImageHandler = async (request) => {
   const { payload } = request;
   const recordData = flat.unflatten(payload);
  
-  
-
   var base64str = base64_encode(recordData.imagem);
 
 	
-
- 
 	request.payload.nome = recordData.imagem.name
   request.payload.imagem = await base64str
 
-  
-  
-  
   return request
 };
 
@@ -65,15 +58,23 @@ module.exports = {
       new:{
         before: uploadImageHandler,
       },
+      
       list:{
         after: ListAfter
+      },
+      show:{
+        before: uploadImageHandler,
       }
-
     },
     properties: {
+      nome:{
+        isVisible: false
+      },
       imagem:{
         components: {
           edit: AdminBro.bundle('./SlideImgComponent/UploadFiles.tsx'),
+          show: AdminBro.bundle('./SlideImgComponent/UploadFilesShow.tsx'),
+          new: AdminBro.bundle('./SlideImgComponent/UploadFiles.tsx'),
           list: AdminBro.bundle('./SlideImgComponent/UploadFilesList.tsx'),
         }
       } 
