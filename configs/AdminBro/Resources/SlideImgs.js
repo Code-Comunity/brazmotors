@@ -1,6 +1,6 @@
 const AdminBro = require("admin-bro");
 var fs = require('fs');
-const flat = require('Flat');
+const flat = require('flat');
 
 
 const uploadImageHandler = async (request) => {	
@@ -21,13 +21,11 @@ const uploadImageHandler = async (request) => {
   var base64str = base64_encode(recordData.imagem);
 
 	
-	// const { File } = payload.uploadImage;
-	// const recordData = flat.unflatten(payload);
+
  
 	request.payload.nome = recordData.imagem.name
   request.payload.imagem = await base64str
 
-	// const { File } = recordData.imagem;
   
   
   
@@ -79,11 +77,7 @@ module.exports = {
           list: AdminBro.bundle('./SlideImgComponent/UploadFilesList.tsx'),
         }
       } 
-      // imagem: {
-      //   components: {
-      //     edit: AdminBro.bundle('./SlideImgComponent/UploadFiles.tsx')
-      //   },
-      //   },
+      
       },
     },
   }
