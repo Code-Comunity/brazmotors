@@ -15,7 +15,7 @@ const uploadImageHandler = async (request) => {
 
   const { payload } = request;
   const recordData = flat.unflatten(payload);
- 
+ console.log(recordData);
   var base64str = base64_encode(recordData.imagem);
 
 	
@@ -25,9 +25,12 @@ const uploadImageHandler = async (request) => {
   return request
 };
 
+function testeShow(request) {
+  console.log(request);
+  return request
+}
 
-
-function ListAfter(request,response,context){
+function ListAfter(request){
   
   function base64_decode(base64str, file) {
   
@@ -36,13 +39,10 @@ function ListAfter(request,response,context){
     fs.writeFileSync(file, bitmap);
    
   }
-  
-  
+
   const recordData = flat.unflatten(request.records);
  
-  
   recordData.map((file64)=>{
-   
     base64_decode(file64.params.imagem,`tmp/${file64.params.nome}`)
   })
 
@@ -62,8 +62,8 @@ module.exports = {
       list:{
         after: ListAfter
       },
-      show:{
-        before: uploadImageHandler,
+      edit:{
+        before: uploadImageHandler
       }
     },
     properties: {
