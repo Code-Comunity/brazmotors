@@ -6,11 +6,14 @@ const MensgConfig = require('../../../configs/AdminBro/Resources/Mensagens')
 const MecanicaEspecializada = require("../../../models/Mecanica_Especializada/MecanicaEspecializadaModel");
 const MecanicaPreventiva = require("../../../models/Mecanica_Preventiva/MecanicaPreventivaModel");
 const EsteticaAutomotiva = require("../../../models/Estetica_Automotiva/EsteticaAutomotivaModel")
+const SlideImgs = require("../../../models/SlideImgs/SlideImgsModel")
+
 const Administrador = require("../../../models/Administrador/AdministradorModel");
 const AdminConfig = require('../../../configs/AdminBro/Resources/adminstrador')
 const traducao = require('../../../configs/AdminBro/tradução/Pt-Br')
 const sidebarGroups = require('../../../utils/sideBars')
 const AdminBro = require('admin-bro')
+const Slideimg = require('../Resources/SlideImgs')
 
 module.exports = {
     resources: [
@@ -21,7 +24,8 @@ module.exports = {
     {resource: MecanicaEspecializada, options:{parent: sidebarGroups.company}},
     {resource: MecanicaPreventiva, options:{parent: sidebarGroups.company}},
     {resource: Veículos, options:{parent: sidebarGroups.carro}},
-    {resource: Marcas, options:{parent: sidebarGroups.carro}}],
+    {resource: Marcas, options:{parent: sidebarGroups.carro}},
+    {resource: SlideImgs, options: Slideimg.options}],
     
     locale: traducao.locale,
         
