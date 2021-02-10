@@ -11,16 +11,18 @@ const cors = require('cors')
   app.use(express.json())
   app.use(routers);
   
+  app.use('/public',express.static('./public'))
   app.use('/images', express.static(path.join(__dirname, 'images')))
   app.use('/admin/tmp', express.static(path.join(__dirname, 'tmp')))
   app.use('/tmp', express.static(path.join(__dirname, 'tmp')))
 
-
-const run = async () => {
-  await mongoose.connect('mongodb+srv://ptkm1:87127186ab@cluster0.jkope.mongodb.net/marcas?retryWrites=true&w=majority', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
-  await app.listen(process.env.PORT || 5500, () => console.log("Server started"))
+  
+  
+  const run = async () => {
+    await mongoose.connect('mongodb+srv://ptkm1:87127186ab@cluster0.jkope.mongodb.net/marcas?retryWrites=true&w=majority', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+    await app.listen(process.env.PORT || 5500, () => console.log("Server started"))
 };
 run()

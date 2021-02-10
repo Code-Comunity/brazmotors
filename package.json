@@ -20,6 +20,7 @@
     "express": "^4.17.1",
     "express-formidable": "^1.2.0",
     "express-session": "^1.17.1",
+    "firebase": "^8.2.6",
     "g": "^2.0.1",
     "mongoose": "^5.10.11",
     "nodemon": "^2.0.6"
