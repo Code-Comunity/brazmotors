@@ -24,7 +24,7 @@ const UploadPhoto = (props) => {
       <DropZone style={{display: 'none'}} onChange={onUpload}/>
       
       <div style={{ width: "100%", height: "100%", position: "absolute"}}>
-        <iframe src="http://localhost:5500/public" style={{ width: "100%", height: 500 }} ></iframe>
+        <iframe src="https://teste-brazmotors.herokuapp.com/public" style={{ width: "100%", height: 500 }} ></iframe>
       </div>
 
     </Box>
