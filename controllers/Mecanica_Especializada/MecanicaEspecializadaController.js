@@ -1,7 +1,7 @@
 const MecanicaEspecializada = require('../../models/Mecanica_Especializada/MecanicaEspecializadaModel')
 module.exports = {
     async FindAll(Request,Response){
-       const mecanica = await MecanicaEspecializada.find({}).limit(10)
+       const mecanica = await MecanicaEspecializada.find({}).limit()
     return Response.json(mecanica)    
     },
     async FindById(Request,Response){
