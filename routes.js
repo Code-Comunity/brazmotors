@@ -5,6 +5,8 @@ const MecanicaPreventiva = require('./controllers/Mecanica_Preventiva/MecanicaPr
 const MecanicaEspecializada = require('./controllers/Mecanica_Especializada/MecanicaEspecializadaController')
 const EsteticaAutomotiva = require('./controllers/Estética_Automotiva/EsteticaAutomotivaController')
 
+const SlideImgs = require('./controllers/SlideImgs/SlideImgsController')
+
 const AcessoriosAutomotivo_msg = require('./controllers/Mensagens/AcessoriosAutomotivosControllers') 
 const Carros_msg = require('./controllers/Mensagens/CarrosControllers') 
 const EsteticaAutomotiva_msg = require('./controllers/Mensagens/EsteticaAutomotivaControllers') 
@@ -24,6 +26,8 @@ const routers = Router()
 
     routers.get('/marcas',Marcas.FindAll)
     routers.get('/marcas/modelos/:id',Marcas.FindById)
+
+    routers.get('/slideimgs', SlideImgs.FindAll)
     
 
     //Rotas dos Serviços automotivos

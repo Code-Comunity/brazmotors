@@ -10,9 +10,10 @@
   "author": "Mayk Brito",
   "license": "MIT",
   "dependencies": {
+    "@admin-bro/design-system": "^1.7.2",
     "@admin-bro/express": "^3.0.1",
     "@admin-bro/mongoose": "^1.1.0",
-    "admin-bro": "^3.3.1",
+    "admin-bro": "^3.4.0",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
@@ -20,8 +21,14 @@
     "express": "^4.17.1",
     "express-formidable": "^1.2.0",
     "express-session": "^1.17.1",
+    "firebase": "^8.2.5",
     "g": "^2.0.1",
     "mongoose": "^5.10.11",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "styled-components": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.7",
+    "rollup-plugin-node-polyfills": "^0.2.1"
   }
 }

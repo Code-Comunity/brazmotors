@@ -5,7 +5,8 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const cors = require('cors')
-  
+const firebase = require('firebase/app')
+
   app.use(cors())
   app.use(adminBroOptions.options.rootPath, router);
   app.use(express.json())
@@ -18,5 +19,15 @@ const run = async () => {
     useUnifiedTopology: true
 });
   await app.listen(process.env.PORT || 5500, () => console.log("Server started"))
+
+  (firebase.initializeApp({
+      apiKey: "AIzaSyD39yRLVKbcw12JmPhL5gk5W8_c3qV-UWk",
+      authDomain: "treino-6249d.firebaseapp.com",
+      databaseURL: "https://treino-6249d.firebaseio.com",
+      projectId: "treino-6249d",
+      storageBucket: "treino-6249d.appspot.com",
+      messagingSenderId: "929368419310",
+      appId: "1:929368419310:web:9fb4eca6295f685e09bcff"
+    }))()
 };
 run()

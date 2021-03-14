@@ -6,10 +6,14 @@ const MensgConfig = require('../../../configs/AdminBro/Resources/Mensagens')
 const MecanicaEspecializada = require("../../../models/Mecanica_Especializada/MecanicaEspecializadaModel");
 const MecanicaPreventiva = require("../../../models/Mecanica_Preventiva/MecanicaPreventivaModel");
 const EsteticaAutomotiva = require("../../../models/Estetica_Automotiva/EsteticaAutomotivaModel")
+const SlideImgs = require("../../../models/SlideImgs/SlideImgsModel")
+
 const Administrador = require("../../../models/Administrador/AdministradorModel");
 const AdminConfig = require('../../../configs/AdminBro/Resources/adminstrador')
 const traducao = require('../../../configs/AdminBro/tradução/Pt-Br')
 const sidebarGroups = require('../../../utils/sideBars')
+const Slideimg = require('../Resources/SlideImgs')
+
 const AdminBro = require('admin-bro')
 
 module.exports = {
@@ -21,7 +25,9 @@ module.exports = {
     {resource: MecanicaEspecializada, options:{parent: sidebarGroups.company}},
     {resource: MecanicaPreventiva, options:{parent: sidebarGroups.company}},
     {resource: Veículos, options:{parent: sidebarGroups.carro}},
-    {resource: Marcas, options:{parent: sidebarGroups.carro}}],
+    {resource: Marcas, options:{parent: sidebarGroups.carro}},
+    {resource: SlideImgs, options: Slideimg.options }
+  ],
     
     locale: traducao.locale,
         
@@ -34,7 +40,7 @@ module.exports = {
         handler: async () => {
             return { some: 'output' }
           },
-    component: AdminBro.bundle('../../../utils/components/dash')
+    component: AdminBro.bundle('../../../utils/components/home')
     
     },
     rootPath: "/admin",

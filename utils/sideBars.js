@@ -14,5 +14,9 @@ module.exports = {
     carro: {
       name: 'Concessionária ',
       icon: 'Car'
+    },
+    slide: {
+      name: 'Slide',
+      icon: 'Product'
     }
 }
