@@ -4,11 +4,11 @@ const CarrosViews = require('../../views/Carros/CarrosViews')
 module.exports = {
 
     async FindAll(Request,Response){
-       const carros = await Carros.find({}).limit(10)
+       const carros = await Carros.find({})
     return Response.json(await CarrosViews.Render(carros))    
     },
     async FindById(Request,Response){
-        const Carro = await Carros.find({_id: Request.params.id}).limit(10)
+        const Carro = await Carros.find({_id: Request.params.id})
     return  Response.json(await CarrosViews.Render(Carro))       
     },
     async Find_Cor(Request,Response){
