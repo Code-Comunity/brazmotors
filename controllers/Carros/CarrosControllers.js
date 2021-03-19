@@ -4,7 +4,7 @@ const CarrosViews = require('../../views/Carros/CarrosViews')
 module.exports = {
 
     async FindAll(Request,Response){
-       const carros = await Carros.find({})
+       const carros = await Carros.find({}).limit()
     return Response.json(await CarrosViews.Render(carros))    
     },
     async FindById(Request,Response){
