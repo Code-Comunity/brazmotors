@@ -5,7 +5,7 @@ const MarcasModelosViews = require('../../views/Marcas/MarcasModelosViews')
 
 module.exports = {
     async FindAll(Request,Response){
-       const marcas = await Marcas.find({})
+       const marcas = await Marcas.find({}) // Procurar
     return Response.json(MarcasViews.RenderAll(marcas))    
     },
   
