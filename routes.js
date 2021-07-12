@@ -20,6 +20,7 @@ const routers = Router()
 // Rotas
     
     routers.get('/acessorios',Acessorios.FindAll)
+    routers.get('/acessorios/:id',Acessorios.FindById)
 
     routers.get('/carros',Carros.FindAll)
     routers.get('/carros/:id',Carros.FindById)
